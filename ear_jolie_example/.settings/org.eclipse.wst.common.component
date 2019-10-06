@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+                                    
+    
+    
+    
+    
+    
+    
+    
+    <wb-module deploy-name="ear-jolie-example-ear-test-jolie">
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+                
+        <dependent-module archiveName="ejb-jolie-example-0.0.1.jar" deploy-path="/" handle="module:/resource/ejb-jolie-example/ejb-jolie-example">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="webapp-jolie-example-0.0.1.war" deploy-path="/" handle="module:/resource/webapp-jolie-example/webapp-jolie-example">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="libjolie-1.9.0-git.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jolie-lang/libjolie/1.9.0-git/libjolie-1.9.0-git.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="jolie-1.9.0-git.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jolie-lang/jolie/1.9.0-git/jolie-1.9.0-git.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="sodep-1.9.0-git.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jolie-lang/sodep/1.9.0-git/sodep-1.9.0-git.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="jolie-java-1.9.0-git.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jolie-lang/jolie-java/1.9.0-git/jolie-java-1.9.0-git.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="maven-model-3.0.2.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/maven/maven-model/3.0.2/maven-model-3.0.2.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="plexus-utils-2.0.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                                                                    
+    
+    
+    
+    
+    
+    
+    
+    </wb-module>
+                                
+
+
+
+
+
+
+
+</project-modules>

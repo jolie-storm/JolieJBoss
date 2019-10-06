@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.jolie-lang</groupId>
+	<artifactId>ear-jolie-example</artifactId>
+	<version>ear-test-jolie</version>
+	<packaging>ear</packaging>
+	<name>ear-jolie-example</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.jolie-lang</groupId>
+			<artifactId>webapp-jolie-example</artifactId>
+			<version>0.0.1</version>
+			<type>war</type>
+		</dependency>	
+		<dependency>
+			<groupId>org.jolie-lang</groupId>
+			<artifactId>ejb-jolie-example</artifactId>
+			<version>0.0.1</version>
+			<type>ejb</type>
+		</dependency>
+<!-- Required Jolie Intepreter Library -->			
+		<dependency>
+			<groupId>org.jolie-lang</groupId>
+			<artifactId>libjolie</artifactId>
+			<version>1.9.0-git</version>
+			<scope>compiled</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jolie-lang</groupId>
+			<artifactId>jolie</artifactId>
+			<version>1.9.0-git</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jolie-lang</groupId>
+			<artifactId>jolie-java</artifactId>
+			<version>1.9.0-git</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jolie-lang</groupId>
+			<artifactId>sodep</artifactId>
+			<version>1.9.0-git</version>
+		</dependency>
+<!--  -->		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<ejbModule>
+							<groupId>org.jolie-lang</groupId>
+							<artifactId>ejb-jolie-example</artifactId>
+						</ejbModule>
+						<webModule>
+							<groupId>org.jolie-lang</groupId>
+							<artifactId>webapp-jolie-example</artifactId>
+						</webModule>
+						<jarModule>
+							<groupId>org.jolie-lang</groupId>
+							<artifactId>libjolie</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>org.jolie-lang</groupId>
+							<artifactId>jolie</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>org.jolie-lang</groupId>
+							<artifactId>sodep</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>org.jolie-lang</groupId>
+							<artifactId>jolie-java</artifactId>
+						</jarModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+
+
+</project>
