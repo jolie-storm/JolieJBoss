@@ -39,13 +39,15 @@ import jolie.runtime.Value;
 public class MyServiceImpl implements MyServiceInterface{
     private Interpreter interpreter;
     public MyServiceImpl (){
-        String jh = "../../../jolie_local_copy/";
+    	System.out.println(this.getClass().getProtectionDomain().getCodeSource().getLocation());
+        String jh = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath().substring(1)+"/jolie_local_copy/";
+        String jolieServiceLocation = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath().substring(1)+"/jolie/";
         String arg[] = {
             "-l",
             "./lib/*;"+ jh+"lib;"+jh+"javaServices\\*;"+ jh + "extensions\\*",
             "-i",
-            jh + "include",
-            "../../../jolie/my_service.ol"
+            jh + "/include",
+            jolieServiceLocation + "my_service.ol"
         };
         
         try {
@@ -77,5 +79,7 @@ public class MyServiceImpl implements MyServiceInterface{
         gres.setGreetings(response.value().getFirstChild( "greetings" ).strValue());
     	return gres;
     }
+
+
     
 }

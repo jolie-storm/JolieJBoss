@@ -1,3 +1,5 @@
+include "console.iol"
+
 type greetingsRequest:void{
     .name: string
     .surname: string
@@ -27,6 +29,7 @@ execution{ concurrent }
 
 main{
     [greetings(request)(response){
+        println@Console("I am inside Jolie")()
         response.greetings = "Hello "  + request.name + " " + request.surname
     }]
 }
