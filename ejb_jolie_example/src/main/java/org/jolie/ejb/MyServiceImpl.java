@@ -62,7 +62,6 @@ public class MyServiceImpl implements MyServiceInterface{
     }
 
     public GreetingsResponse greetings(GreetingsRequest arg0) throws FaultException, IOException, InterruptedException, Exception {
-    	System.out.println("I am here1");
         Value v = Value.create();
         v.setFirstChild( "name", "balint" );
         v.setFirstChild("surname","maschio");
@@ -74,7 +73,6 @@ public class MyServiceImpl implements MyServiceInterface{
             System.out.println("thrown response.fault()");
             throw response.fault();
         }
-        System.out.println( response.value().getFirstChild( "greetings" ).strValue() );
         GreetingsResponse gres = new GreetingsResponse();
         gres.setGreetings(response.value().getFirstChild( "greetings" ).strValue());
     	return gres;
