@@ -51,6 +51,7 @@ public class MyServiceImpl implements MyServiceInterface{
         };
         
         try {
+        	System.out.println(this.getClass().getClassLoader().toString());
             interpreter = new Interpreter(arg, MyServiceImpl.class.getClassLoader(), null);
             Exception e = interpreter.start().get();
             if ( e != null )

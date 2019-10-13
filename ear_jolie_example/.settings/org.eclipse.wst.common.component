@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                                        
+                                            
+    
     
     
     
@@ -9,7 +10,8 @@
     
     
     <wb-module deploy-name="ear-jolie-example-ear-test-jolie">
-                                                                                
+                                                                                        
+        
         
         
         
@@ -19,7 +21,8 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
-                                                                                
+                                                                                        
+        
         
         
         
@@ -29,6 +32,9 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="DepotHandler-0.0.1.jar" deploy-path="/" handle="module:/resource/DepotHandler/DepotHandler">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="ejb-jolie-example-0.0.1.jar" deploy-path="/" handle="module:/resource/ejb-jolie-example/ejb-jolie-example">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -53,7 +59,8 @@
         <dependent-module archiveName="plexus-utils-2.0.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-                                                                            
+                                                                                    
+    
     
     
     
@@ -63,7 +70,8 @@
     
     
     </wb-module>
-                                    
+                                        
+
 
 
 

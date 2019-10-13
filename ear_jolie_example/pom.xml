@@ -21,6 +21,12 @@
 			<version>0.0.1</version>
 			<type>ejb</type>
 		</dependency>
+		<dependency>
+			<groupId>org.jolie</groupId>
+			<artifactId>DepotHandler</artifactId>
+			<version>0.0.1</version>
+			<type>ejb</type>
+		</dependency>
 <!-- Required Jolie Intepreter Library -->			
 		<dependency>
 			<groupId>org.jolie-lang</groupId>
@@ -66,6 +72,10 @@
 					<defaultLibBundleDir>lib</defaultLibBundleDir>
 					<modules>
 						<ejbModule>
+							<groupId>org.jolie</groupId>
+							<artifactId>DepotHandler</artifactId>
+						</ejbModule>
+						<ejbModule>
 							<groupId>org.jolie-lang</groupId>
 							<artifactId>ejb-jolie-example</artifactId>
 						</ejbModule>
@@ -94,9 +104,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
-
-
-
 </project>

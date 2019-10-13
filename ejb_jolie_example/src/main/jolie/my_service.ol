@@ -24,12 +24,17 @@ outputPort TestOutputPort {
 Interfaces: GreetingsInterface
 }
 
+init{
+global.counter= 0
+}
+
 
 execution{ concurrent }
 
 main{
     [greetings(request)(response){
-        println@Console("I am inside Jolie")()
+        global.counter = global.counter +1
+        println@Console("You called number of time "  + global.counter)()
         response.greetings = "Hello "  + request.name + " " + request.surname
     }]
 }
