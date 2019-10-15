@@ -6,5 +6,5 @@ import org.jolie.DepotHandler.Types.MaterialDocument;
 
 @Remote
 public interface DepotInterface {
-   public void ouputMaterialDocument(MaterialDocument materialDocument);
+   public String ouputMaterialDocument(MaterialDocument materialDocument);
 }

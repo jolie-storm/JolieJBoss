@@ -19,7 +19,7 @@ public class DeliveryAddress implements java.io.Serializable {
   @Override
   public String toString() {
 	  StringBuilder sb = new StringBuilder();
-	  sb.append(this.street).append("/n").append(this.streetNumber).append("/n").append(this.zipCode);
+	  sb.append(this.street).append("\n").append(this.streetNumber).append("\n").append(this.zipCode);
 	  return sb.toString();
   }
 }

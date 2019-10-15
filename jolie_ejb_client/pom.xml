@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jolie</groupId>
 	<artifactId>jolie-ejb-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<profiles>
 		<profile>
 			<id>central_repository</id>
@@ -45,6 +45,24 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<version.io.undertow>2.0.26.Final</version.io.undertow>
+		<version.org.jboss>4.0.23.Final</version.org.jboss>
+		<version.org.jboss.ejb3>2.3.0.Final</version.org.jboss.ejb3>
+		<version.org.jboss.logging>3.4.1.Final</version.org.jboss.logging>
+		<version.org.jboss.marshalling>2.0.9.Final</version.org.jboss.marshalling>
+		<version.org.jboss.remoting>5.0.15.Final</version.org.jboss.remoting>
+		<version.org.jboss.spec.javax.ejb>2.0.0.Final</version.org.jboss.spec.javax.ejb>
+		<version.org.jboss.spec.javax.resource>2.0.0.Final</version.org.jboss.spec.javax.resource>
+		<version.org.jboss.spec.javax.transaction>2.0.0.Final</version.org.jboss.spec.javax.transaction>
+		<version.org.jboss.threads>2.3.3.Final</version.org.jboss.threads>
+		<version.org.jboss.xnio>3.7.3.Final</version.org.jboss.xnio>
+		<version.org.wildfly>1.0.11.Final</version.org.wildfly>
+		<version.org.wildfly.client>1.0.1.Final</version.org.wildfly.client>
+		<version.org.wildfly.common>1.5.1.Final</version.org.wildfly.common>
+		<version.org.wildfly.discovery>1.2.0.Final</version.org.wildfly.discovery>
+		<version.org.wildfly.security>1.10.3.Final</version.org.wildfly.security>
+		<version.org.wildfly.transaction>1.1.7.Final</version.org.wildfly.transaction>
+		<version.org.wildfly.wildfly-http-client>1.0.16.Final</version.org.wildfly.wildfly-http-client>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -80,9 +98,20 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss</groupId>
-			<artifactId>jboss-ejb-client</artifactId>
-			<version>4.0.7.Final</version>
+			<groupId>org.wildfly</groupId>
+			<artifactId>wildfly-ejb-client-bom</artifactId>
+			<version>18.0.0.Final</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.28</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.28</version>
 		</dependency>
 
 	</dependencies>
@@ -97,6 +126,72 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven.surefire.debug</artifactId>
 				<version>2.</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/jolie/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<stripVersion>true</stripVersion>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>copy-installed</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+									<type>jar</type>
+									<destFileName>${project.artifactId}.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.basedir}/jolie/lib</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-dependency</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.jolie</groupId>
+									<artifactId>DepotHandler</artifactId>
+									<version>0.0.1</version>
+									<type>jar</type>
+									<destFileName>DepotHandler.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.basedir}/jolie/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>

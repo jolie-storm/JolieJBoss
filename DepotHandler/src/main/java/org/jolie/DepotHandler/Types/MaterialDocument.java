@@ -9,10 +9,14 @@ public class MaterialDocument implements java.io.Serializable {
 		this.deliveryName = deliveryName;
 	}
 	
+	public void DeliveryAddress (DeliveryAddress deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.deliveryName).append("\n");
+		sb.append(this.deliveryName).append("\n").append(this.deliveryAddress.toString()).append("\n");
         return sb.toString();
 
 	}

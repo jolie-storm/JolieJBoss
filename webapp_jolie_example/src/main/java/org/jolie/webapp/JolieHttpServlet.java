@@ -25,7 +25,7 @@ public class JolieHttpServlet extends HttpServlet{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@EJB(lookup="ejb:ear-jolie-example-ear-test-jolie/ejb-jolie-example-0.0.1/MyServiceImpl!org.jolie.ejb.interfaces.MyServiceInterface")
 	private MyServiceInterface myServiceImpl;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
